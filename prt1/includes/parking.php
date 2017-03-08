@@ -48,24 +48,38 @@
 	/* === Función que decide la lógina sacar coche === */
 	/****************************************************/
 	function take_car($car_type){
+		$control = 0;
 		//si no hay coches en los garajes volvemos al menú principal
 		if (!isset($_SESSION['small']) || !isset($_SESSION['big'])) {
 			echo "<script>
 						alert('No hay coches en el garaje!');
 						window.location.href='principal.php';
 				 </script>";
-			//header('Location: principal.php');
 		}
 		
 		if ($car_type == "Pequeño") {
-			//verificamos que el parking no esté vacio
-			if (count($_SESSION['small']) > 0) {
+			//Antes de nada verificamos que haya pequeños en el grande
+			if (count($_SESSION['big']) > 0) {
+				foreach ($_SESSION['big'] as $key => $value) {
+					if ($value == "Coche Pequeño") {
+						unset($_SESSION['big'][$key]);
+						$control = 1;
+						echo "<script>
+									alert('Hemos sacado un coche pequeño del parking grande!');
+									window.location.href='principal.php';
+							 </script>";
+						//break para que solo saque un coche pequeño del grande
+						break;
+					}
+				}
+			}
+			//verificamos que el parking pequeño no esté vacio
+			if (count($_SESSION['small']) > 0 && $control == 0) {
 				array_pop($_SESSION['small']);
 				echo "<script>
 						alert('Hemos retirado su coche pequeño!');
 						window.location.href='principal.php';
 					  </script>";
-				//header('Location: principal.php');
 			}else{
 				echo "<p class='text-warning bg-danger'>No hay coches pequeños en el parking</p>";
 				echo "<a href='principal.php' class='btn btn-danger'>Menú Principal</a>";
@@ -73,12 +87,21 @@
 		}elseif($car_type == "Grande"){
 			//verificamos que el parking no esté vacio
 			if (count($_SESSION['big']) > 0) {
-				array_pop($_SESSION['big']);
-				echo "<script>
-						alert('Hemos retirado su coche grande!');
-						window.location.href='principal.php';
-					  </script>";
-				//header('Location: principal.php');
+				foreach ($_SESSION['big'] as $key => $value) {
+					if ($value == "Coche Pequeño") {
+						continue;
+						
+					}else{
+						unset($_SESSION['big'][$key]);
+						echo "<script>
+								alert('Hemos retirado su coche grande!');
+								window.location.href='principal.php';
+							  </script>";
+						//break para que sólo saque un coche grande
+						break;
+					}
+				}
+				
 			}else{
 				echo "<p class='text-warning bg-danger'>No hay coches grandes en el parking</p>";
 				echo "<a href='principal.php' class='btn btn-danger'>Menú Principal</a>";

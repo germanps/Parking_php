@@ -14,21 +14,25 @@
 				</li>
 				<li class="counter">
 					<p class="text-info">Aforo parking pequeño</p>
-					<p id="smallCount" class="text-info bg-info"><?php 
-					
-					//imprime_contador_peq();
+					<p id="smallCount" class="text-info bg-info">
+					<?php 
 
-					//variables contador
 					$cont_big = 0;
 					$cont_small = 0;
-					//verificamos cuantos coches pequeños hay en el array small
-					foreach ($_SESSION['small'] as $key => $value) {
-						if ($value == 'Coche Pequeño') {
-							$cont_small++;
+					$cont_small_big = 0;
+
+					if (isset($_SESSION['small'])) {
+						foreach ($_SESSION['small'] as $key => $value) {
+							if ($value == 'Coche Pequeño') {
+								$cont_small++;
+							}
 						}
+						//imprimimos cantidad coches en plazas pequeñas
+						echo "$cont_small/14";
+					}else{
+						//si no hay array imprimimos un fake 
+						echo "0/14";
 					}
-					//imprimimos cantidad coches en plazas pequeñas
-					echo "$cont_small/14"; 
 
 					?></p>
 
@@ -40,33 +44,31 @@
 					<p id="bigCount" class="text-info bg-info">
 					<?php
 
-					//imprime_contador_gra();
-
-					//verificamos cuantos coches grandes hay en el array big
-					foreach ($_SESSION['big'] as $key => $value) {
-						if ($value == 'Coche Grande') {
-							$cont_big++;
-						}
-					}
-					//comprobamos si el array small esta lleno y el big aún tiene sitio
-					if (count($_SESSION['small']) == 14 && count($_SESSION['big'] < 10))  {
-						//entonces comprobamos los coches pequeños que hay en el array big
+					if (isset($_SESSION['big'])) {
 						foreach ($_SESSION['big'] as $key => $value) {
-							if ($value == 'Coche Pequeño') {
-								//y sumamos uno al contador (será pequeño pero está en la plaza grande)
+							if ($value == 'Coche Grande') {
 								$cont_big++;
+							}elseif ($value == 'Coche Pequeño') {
+								$cont_small_big++;
 							}
 						}
+						//imprimimos cantidad total de coches en plazas grandes
+						echo ($cont_big + $cont_small_big) . "/10";
+					}else{
+						//si no hay array imprimimos un fake 
+						echo "0/10";
 					}
-					//imprimimos cantidad coches en plazas grandes
-					echo "$cont_big/10";
 
 					?></p>
 
-
-					<p><?php //print_r($_SESSION['big']); ?></p>
 				</li>
 			</ul>
+			<?php 
+				  echo "PEQUEÑOS<br>";
+				  print_r($_SESSION['small']);;
+				  echo "<br>GRANDES<br>";
+				  print_r($_SESSION['big']);
+			 ?>
 		</section>
 		<hr>
 		<section id="smartCars" class="info-wrapper">
@@ -80,8 +82,8 @@
 				  </thead>
 				  <tbody>
 				    <tr class="info">
-				      <td> 1 (vacia) </td>
-				      <td> 2 (vacia) </td>
+				      <td> <?php //if (count($_SESSION['small']) > 0){echo $_SESSION['small'][0];}else{echo "1 vacia";}?> </td>
+				      <td> <?php //if (count($_SESSION['small']) > 1){echo $_SESSION['small'][1];}else{echo "2 vacia";}?> </td>
 				      <td> 3 (vacia) </td>
 				    </tr>
 				    <tr class="success">
