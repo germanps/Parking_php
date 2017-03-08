@@ -63,17 +63,11 @@
 
 				</li>
 			</ul>
-			<?php 
-				  echo "PEQUEÑOS<br>";
-				  print_r($_SESSION['small']);;
-				  echo "<br>GRANDES<br>";
-				  print_r($_SESSION['big']);
-			 ?>
 		</section>
 		<hr>
 		<section id="smartCars" class="info-wrapper">
 			<a href="#" class="btn btn-primary">Info Parking Pequeño</a>
-			<div id="bigTableContainer" class="wrapper">
+			<div id="smartCarsTable" class="wrapper">
 				<table class="table table-striped table-hover ">
 				  <thead>
 				    <tr>
@@ -82,28 +76,28 @@
 				  </thead>
 				  <tbody>
 				    <tr class="info">
-				      <td> <?php //if (count($_SESSION['small']) > 0){echo $_SESSION['small'][0];}else{echo "1 vacia";}?> </td>
-				      <td> <?php //if (count($_SESSION['small']) > 1){echo $_SESSION['small'][1];}else{echo "2 vacia";}?> </td>
-				      <td> 3 (vacia) </td>
+				      <td><span>1 </span><span class="resul">(vacia)</span></td>
+				      <td><span>2 </span><span class="resul">(vacia)</span></td>
+				      <td><span>3 </span><span class="resul">(vacia)</span></td>
 				    </tr>
 				    <tr class="success">
-				      <td> 4 (vacia) </td>
-				      <td> 5 (vacia) </td>
-				      <td> 6 (vacia) </td>
+				      <td><span>4 </span><span class="resul">(vacia)</span></td>
+				      <td><span>5 </span><span class="resul">(vacia)</span></td>
+				      <td><span>6 </span><span class="resul">(vacia)</span></td>
 				    </tr>
 				    <tr class="danger">
-				      <td> 7 (vacia) </td>
-				      <td> 8 (vacia) </td>
-				      <td> 9 (vacia) </td>
+				      <td><span>7 </span><span class="resul">(vacia)</span></td>
+				      <td><span>8 </span><span class="resul">(vacia)</span></td>
+				      <td><span>9 </span><span class="resul">(vacia)</span></td>
 				    </tr>
 				    <tr class="warning">
-				      <td> 10 (vacia) </td>
-				      <td> 11 (vacia) </td>
-				      <td> 12 (vacia) </td>
+				      <td> <span>10 </span><span class="resul">(vacia)</span></td>
+				      <td> <span>11 </span><span class="resul">(vacia)</span></td>
+				      <td> <span>12 </span><span class="resul">(vacia)</span></td>
 				    </tr>
 				    <tr class="active">
-				      <td> 13 (vacia) </td>
-				      <td> 14 (vacia) </td>
+				      <td> <span>13 </span><span class="resul">(vacia)</span></td>
+				      <td> <span>14 </span><span class="resul">(vacia)</span></td>
 				      <td> OCUPADA </td>
 				    </tr>
 				  </tbody>
@@ -112,7 +106,7 @@
 		</section>
 		<section id="bigCars" class="info-wrapper">
 			<a href="#" class="btn btn-primary">Info Parking Grande</a>
-			<div id="smallTableContainer" class="wrapper">
+			<div id="bigCarsTable" class="wrapper">
 				<table class="table table-striped table-hover ">
 				  <thead>
 				    <tr>
@@ -121,22 +115,22 @@
 				  </thead>
 				  <tbody>
 				    <tr class="info">
-				      <td> 1 (vacia) </td>
-				      <td> 2 (vacia) </td>
-				      <td> 3 (vacia) </td>
+				      <td><span>1 </span><span class="resul">(vacia)</span> </td>
+				      <td><span>2 </span><span class="resul">(vacia)</span> </td>
+				      <td><span>3 </span><span class="resul">(vacia)</span> </td>
 				    </tr>
 				    <tr class="success">
-				      <td> 4 (vacia) </td>
-				      <td> 5 (vacia) </td>
-				      <td> 6 (vacia) </td>
+				      <td><span>4 </span><span class="resul">(vacia)</span> </td>
+				      <td><span>5 </span><span class="resul">(vacia)</span> </td>
+				      <td><span>6 </span><span class="resul">(vacia)</span> </td>
 				    </tr>
 				    <tr class="danger">
-				      <td> 7 (vacia) </td>
-				      <td> 8 (vacia) </td>
-				      <td> 9 (vacia) </td>
+				      <td><span>7 </span><span class="resul">(vacia)</span> </td>
+				      <td><span>8 </span><span class="resul">(vacia)</span> </td>
+				      <td><span>9 </span><span class="resul">(vacia)</span> </td>
 				    </tr>
 				    <tr class="warning">
-				      <td> 10 (vacia) </td>
+				      <td><span>10 </span><span class="resul">(vacia)</span> </td>
 				      <td> OCUPADA </td>
 				      <td> OCUPADA </td>
 				    </tr>
