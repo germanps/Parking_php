@@ -88,6 +88,12 @@ section.info-wrapper div.wrapper{
 }
 
 /*Tables*/
+table{
+    margin-top: 2rem;
+}
+table tr{
+    height: 68px;
+}
 table tbody tr td{
     text-align: center;
 }
@@ -105,6 +111,12 @@ footer{
 /* ==== Helper clases ==== */
 .sq-text{
     color: #747474;
+}
+.sq-font{
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-family: tahoma;
 }
 .xs-text{
     font-size: 1.3rem;

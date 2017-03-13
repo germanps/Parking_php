@@ -103,8 +103,8 @@
 				}
 				
 			}else{
-				echo "<p class='text-warning bg-danger'>No hay coches grandes en el parking</p>";
-				echo "<a href='principal.php' class='btn btn-danger'>Menú Principal</a>";
+				//echo "<p class='text-warning bg-danger'>No hay coches grandes en el parking</p>";
+				//echo "<a href='principal.php' class='btn btn-danger'>Menú Principal</a>";
 			}
 		}
 	}

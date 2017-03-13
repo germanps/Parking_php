@@ -1,4 +1,7 @@
 <?php 
 session_start();
-echo implode('~', $_SESSION['big']);
+if (!empty($_SESSION['big'])) {
+	echo implode('~', $_SESSION['big']);
+}
+
  ?>

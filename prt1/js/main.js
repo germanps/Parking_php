@@ -20,7 +20,10 @@ jQuery(document).ready(function($) {
 		    result = data.split('~');
 		    //imprimimos la tabla con valores del servidor
 		    $('#smartCarsTable table td span.resul').each(function(index, el) {
-		    	$(this).html(result[index]);
+		    	if (result !== undefined) {
+		    		$(this).html(result[index]);
+		    	}	
+		    	
 		    });
 		  },
 		});
@@ -36,7 +39,10 @@ jQuery(document).ready(function($) {
 		    result = data.split('~');
 		    //imprimimos la tabla con valores del servidor
 		    $('#bigCarsTable table td span.resul').each(function(index, el) {
-		    	$(this).html(result[index]);
+		    	if (result !== undefined) {
+		    		$(this).html(result[index]);
+		    	}
+		    	
 		    });
 		  },
 		});

@@ -13,36 +13,14 @@
 					<a href="take_car.php" class="btn btn-danger">Retirar Coche</a>
 				</li>
 				<li class="counter">
-					<p class="text-info">Aforo parking pequeño</p>
-					<p id="smallCount" class="text-info bg-info">
-					<?php 
+					<p class="text-info sq-font">Aforo parking grande</p>
+					<p id="bigCount" class="text-info bg-info sq-font">
+					<?php
 
+					//Declaramos los contadores
 					$cont_big = 0;
 					$cont_small = 0;
 					$cont_small_big = 0;
-
-					if (isset($_SESSION['small'])) {
-						foreach ($_SESSION['small'] as $key => $value) {
-							if ($value == 'Coche Pequeño') {
-								$cont_small++;
-							}
-						}
-						//imprimimos cantidad coches en plazas pequeñas
-						echo "$cont_small/14";
-					}else{
-						//si no hay array imprimimos un fake 
-						echo "0/14";
-					}
-
-					?></p>
-
-
-					<p><?php //print_r($_SESSION['small']); ?></p>
-				</li>
-				<li class="counter">
-					<p class="text-info">Aforo parking grande</p>
-					<p id="bigCount" class="text-info bg-info">
-					<?php
 
 					if (isset($_SESSION['big'])) {
 						foreach ($_SESSION['big'] as $key => $value) {
@@ -62,6 +40,26 @@
 					?></p>
 
 				</li>
+				<li class="counter">
+					<p class="text-info sq-font">Aforo parking pequeño</p>
+					<p id="smallCount" class="text-info bg-info sq-font">
+					<?php 
+
+					if (isset($_SESSION['small'])) {
+						foreach ($_SESSION['small'] as $key => $value) {
+							if ($value == 'Coche Pequeño') {
+								$cont_small++;
+							}
+						}
+						//imprimimos cantidad coches en plazas pequeñas
+						echo "$cont_small/14";
+					}else{
+						//si no hay array imprimimos un fake 
+						echo "0/14";
+					}
+
+					?></p>
+				</li>
 			</ul>
 		</section>
 		<hr>
@@ -76,29 +74,73 @@
 				  </thead>
 				  <tbody>
 				    <tr class="info">
-				      <td><span>1 </span><span class="resul">(vacia)</span></td>
-				      <td><span>2 </span><span class="resul">(vacia)</span></td>
-				      <td><span>3 </span><span class="resul">(vacia)</span></td>
+				      <td>
+				      	<p class="text-primary">Plaza 1</p>
+				      	<span class="resul"></span>
+				      </td>
+				      <td>
+				      	<p class="text-primary">Plaza 2</p>
+				      	<span class="resul"></span>
+				      </td>
+				      <td>
+				      	<p class="text-primary">Plaza 3</p>
+				      	<span class="resul"></span>
+				      </td>
 				    </tr>
 				    <tr class="success">
-				      <td><span>4 </span><span class="resul">(vacia)</span></td>
-				      <td><span>5 </span><span class="resul">(vacia)</span></td>
-				      <td><span>6 </span><span class="resul">(vacia)</span></td>
+				      <td>
+				      	<p class="text-primary">Plaza 4</p>
+				      	<span class="resul"></span>
+				      </td>
+				      <td>
+				      	<p class="text-primary">Plaza 5</p>
+				      	<span class="resul"></span>
+				      </td>
+				      <td>
+				      	<p class="text-primary">Plaza 6</p>
+				      	<span class="resul"></span>
+				      </td>
 				    </tr>
 				    <tr class="danger">
-				      <td><span>7 </span><span class="resul">(vacia)</span></td>
-				      <td><span>8 </span><span class="resul">(vacia)</span></td>
-				      <td><span>9 </span><span class="resul">(vacia)</span></td>
+				      <td>
+				      	<p class="text-primary">Plaza 7</p>
+				      	<span class="resul"></span>
+				      </td>
+				      <td>
+				      	<p class="text-primary">Plaza 8</p>
+				      	<span class="resul"></span>
+				      </td>
+				      <td>
+				      	<p class="text-primary">Plaza 9</p>
+				      	<span class="resul"></span>
+				      </td>
 				    </tr>
 				    <tr class="warning">
-				      <td> <span>10 </span><span class="resul">(vacia)</span></td>
-				      <td> <span>11 </span><span class="resul">(vacia)</span></td>
-				      <td> <span>12 </span><span class="resul">(vacia)</span></td>
+				     <td>
+				      	<p class="text-primary">Plaza 10</p>
+				      	<span class="resul"></span>
+				      </td>
+				      <td>
+				      	<p class="text-primary">Plaza 11</p>
+				      	<span class="resul"></span>
+				      </td>
+				      <td>
+				      	<p class="text-primary">Plaza 12</p>
+				      	<span class="resul"></span>
+				      </td>
 				    </tr>
 				    <tr class="active">
-				      <td> <span>13 </span><span class="resul">(vacia)</span></td>
-				      <td> <span>14 </span><span class="resul">(vacia)</span></td>
-				      <td> OCUPADA </td>
+				      <td>
+				      	<p class="text-primary">Plaza 13</p>
+				      	<span class="resul"></span>
+				      </td>
+				      <td>
+				      	<p class="text-primary">Plaza 14</p>
+				      	<span class="resul"></span>
+				      </td>
+				      <td>
+				 		<span class="resul">RESERVADA</span>
+				      </td>
 				    </tr>
 				  </tbody>
 				</table> 
@@ -115,24 +157,54 @@
 				  </thead>
 				  <tbody>
 				    <tr class="info">
-				      <td><span>1 </span><span class="resul">(vacia)</span> </td>
-				      <td><span>2 </span><span class="resul">(vacia)</span> </td>
-				      <td><span>3 </span><span class="resul">(vacia)</span> </td>
+				      <td>
+				      	<p class="text-primary">Plaza 1</p>
+				      	<span class="resul"></span>
+				      </td>
+				      <td>
+				      	<p class="text-primary">Plaza 2</p>
+				      	<span class="resul"></span>
+				      </td>
+				      <td>
+				      	<p class="text-primary">Plaza 3</p>
+				      	<span class="resul"></span>
+				      </td>
 				    </tr>
 				    <tr class="success">
-				      <td><span>4 </span><span class="resul">(vacia)</span> </td>
-				      <td><span>5 </span><span class="resul">(vacia)</span> </td>
-				      <td><span>6 </span><span class="resul">(vacia)</span> </td>
+				      <td>
+				      	<p class="text-primary">Plaza 4</p>
+				      	<span class="resul"></span>
+				      </td>
+				      <td>
+				      	<p class="text-primary">Plaza 5</p>
+				      	<span class="resul"></span>
+				      </td>
+				      <td>
+				      	<p class="text-primary">Plaza 6</p>
+				      	<span class="resul"></span>
+				      </td>
 				    </tr>
 				    <tr class="danger">
-				      <td><span>7 </span><span class="resul">(vacia)</span> </td>
-				      <td><span>8 </span><span class="resul">(vacia)</span> </td>
-				      <td><span>9 </span><span class="resul">(vacia)</span> </td>
+				      <td>
+				      	<p class="text-primary">Plaza 7</p>
+				      	<span class="resul"></span>
+				      </td>
+				      <td>
+				      	<p class="text-primary">Plaza 8</p>
+				      	<span class="resul"></span>
+				      </td>
+				      <td>
+				      	<p class="text-primary">Plaza 9</p>
+				      	<span class="resul"></span>
+				      </td>
 				    </tr>
 				    <tr class="warning">
-				      <td><span>10 </span><span class="resul">(vacia)</span> </td>
-				      <td> OCUPADA </td>
-				      <td> OCUPADA </td>
+				      <td>
+				      	<p class="text-primary">Plaza 10</p>
+				      	<span class="resul"></span>
+				      </td>
+				      <td> RESERVADA </td>
+				      <td> RESERVADA </td>
 				    </tr>
 				  </tbody>
 				</table> 
