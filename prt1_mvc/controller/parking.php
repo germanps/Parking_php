@@ -24,7 +24,8 @@
 							  </script>";
 						//header('Location: principal.php');
 					}else{
-						echo "Parking totalmente completo, vuelva mas tarde";
+						echo "<p class='text-danger'>Parking completo, vuelva mas tarde</p>";
+						echo "<a href='principal.php' class='btn btn-info'>Menú Principal</a>";
 					}
 				}
 				//si el coche es grande			
@@ -39,7 +40,8 @@
 					//header('Location: principal.php');
 				}else{
 					//si no hay sitio para coches grandes no puede aparcar
-					echo "Parking de coches grandes lleno";
+					echo "<p class='text-danger'>Parking de coches grandes lleno</p>";
+					echo "<a href='principal.php' class='btn btn-info'>Menú Principal</a>";
 				}
 			}						
 		}
@@ -113,41 +115,38 @@
 	/* === Funciones imprime contadores === */
 	/************************************/
 
-	function imprime_marcador(){
-
-	}
-
-
-	function imprime_contador_gra(){
-		$cont_big = 0;
-		if (!isset($_SESSION['big']) || count($_SESSION['big']) < 1) {
-			echo $cont_big;
-		}else{
+	
+	function print_big($cont_big,$cont_small,$cont_small_big){
+		if (isset($_SESSION['big'])) {
 			foreach ($_SESSION['big'] as $key => $value) {
 				if ($value == 'Coche Grande') {
 					$cont_big++;
+				}elseif ($value == 'Coche Pequeño') {
+					$cont_small_big++;
 				}
 			}
-			echo $cont_big;
-			//print_r($_SESSION['big']);
-		}	
-	}
-	function imprime_contador_peq(){
-		$cont_small = 0;
-		if (!isset($_SESSION['small']) || count($_SESSION['small']) < 1) {
-			echo $cont_small;
+			//imprimimos cantidad total de coches en plazas grandes
+			echo ($cont_big + $cont_small_big) . "/10";
 		}else{
-			
+			//si no hay array imprimimos un fake 
+			echo "0/10";
+		}
+		
+	}
+
+	function print_small($cont_big,$cont_small,$cont_small_big){
+		if (isset($_SESSION['small'])) {
 			foreach ($_SESSION['small'] as $key => $value) {
 				if ($value == 'Coche Pequeño') {
 					$cont_small++;
 				}
 			}
-			
-			echo $cont_small;
-			//print_r($_SESSION['big']);
-		}
-
+			//imprimimos cantidad coches en plazas pequeñas
+			echo "$cont_small/14";
+		}else{
+			//si no hay array imprimimos un fake 
+			echo "0/14";
+		}	
 	}
 
  ?>

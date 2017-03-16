@@ -13,7 +13,7 @@ jQuery(document).ready(function($) {
 	function printAjaxSmall(){
 		$.ajax({
 		  type: 'GET',
-		  url: 'includes/small_ajax.php',
+		  url: '../controller/small_ajax.php',
 		  data: 'id=testdata',
 		  cache: false,
 		  success: function(data) {
@@ -32,7 +32,7 @@ jQuery(document).ready(function($) {
 	function printAjaxBig(){
 		$.ajax({
 		  type: 'GET',
-		  url: 'includes/big_ajax.php',
+		  url: '../controller/big_ajax.php',
 		  data: 'id=testdata',
 		  cache: false,
 		  success: function(data) {

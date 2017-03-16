@@ -1,6 +1,12 @@
 <?php include_once "header.html" ?>
-<?php include "includes/parking.php"; ?>
-<?php session_start() ?>
+<?php include "../controller/parking.php"; ?>
+<?php 
+	session_start();
+	//Declaramos los contadores
+	$cont_big = 0;
+	$cont_small = 0;
+	$cont_small_big = 0;
+ ?>
 	<h3 class="text-warning bg-primary text-center">Parking Barcelona</h3>
 	<div class="welcome-menu">
 		<section class="menu-options">
@@ -16,49 +22,17 @@
 					<p class="text-info sq-font">Aforo parking grande</p>
 					<p id="bigCount" class="text-info bg-info sq-font">
 					<?php
-
-					//Declaramos los contadores
-					$cont_big = 0;
-					$cont_small = 0;
-					$cont_small_big = 0;
-
-					if (isset($_SESSION['big'])) {
-						foreach ($_SESSION['big'] as $key => $value) {
-							if ($value == 'Coche Grande') {
-								$cont_big++;
-							}elseif ($value == 'Coche Pequeño') {
-								$cont_small_big++;
-							}
-						}
-						//imprimimos cantidad total de coches en plazas grandes
-						echo ($cont_big + $cont_small_big) . "/10";
-					}else{
-						//si no hay array imprimimos un fake 
-						echo "0/10";
-					}
-
-					?></p>
-
+						print_big($cont_big,$cont_small,$cont_small_big);
+					?>
+					</p>
 				</li>
 				<li class="counter">
 					<p class="text-info sq-font">Aforo parking pequeño</p>
 					<p id="smallCount" class="text-info bg-info sq-font">
 					<?php 
-
-					if (isset($_SESSION['small'])) {
-						foreach ($_SESSION['small'] as $key => $value) {
-							if ($value == 'Coche Pequeño') {
-								$cont_small++;
-							}
-						}
-						//imprimimos cantidad coches en plazas pequeñas
-						echo "$cont_small/14";
-					}else{
-						//si no hay array imprimimos un fake 
-						echo "0/14";
-					}
-
-					?></p>
+						print_small($cont_big,$cont_small,$cont_small_big);
+					?>
+					</p>
 				</li>
 			</ul>
 		</section>
